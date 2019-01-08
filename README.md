@@ -28,9 +28,25 @@ The web application is deployed on this URL: http://ec2-18-194-41-12.eu-central-
 4. Connect to the instance through the terminal by running this command: 
 `ssh -i LightsailDefaultKey-eu-central-1.pem ubuntu@18.194.41.12` in which "18.194.41.12" is the Public IP of the instance and "ubuntu" is the username.
 
-### Step 3: Update and upgrade all currently installed packages
+### Step 3: Update and upgrade all currently installed packages & enable automatic updates
 1. Update the installed packages by running this command: `sudo apt-get update`.
 2. Upgrade the installed packages by running this command: `sudo apt-get upgrade`.
+3. Automate unattended-upgrades process updates to keep system dependencies always up to date to maintain system overall security and performance:
+- Run the command: `sudo apt install unattended-upgrades`.
+- Configure unattended-upgrades by editing the file through: `sudo nano /etc/apt/apt.conf.d/50unattended-upgrades` and adjust the unattended upgrades to fit your needs.
+- Enable automatic updates by running: `sudo nano /etc/apt/apt.conf.d/20auto-upgrades` and set the appropriate apt configuration options:
+```
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::AutocleanInterval "7";
+APT::Periodic::Unattended-Upgrade "1";
+```
+- If the message of existing packages can be updated persists, run the following commands:
+```
+sudo apt-get install aptitude
+sudo aptitude update
+sudo aptitude safe-upgrade
+```
 
 ### Step 4: Change the SSH port from 22 to 2200
 1. Edit the `sshd_config` by running this command: `sudo nano /etc/ssh/sshd_config`
@@ -220,3 +236,4 @@ application.secret_key = 'super_secret_key'
 - [How to secure PostgreSQL on Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
 - [Configuring UTC time](https://help.ubuntu.com/community/UbuntuTime)
 - [Making .git Directory inaccessible](https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible)
+- [Configuring Automatic Updates for installed packages](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)

@@ -209,14 +209,14 @@ application.secret_key = 'super_secret_key'
 
 ### Third-Party & Helpful Resources
 
-- Udacity's course for Configuring Linux Servers: (Configuring Linux Web Servers)[https://www.udacity.com/course/configuring-linux-web-servers--ud299]
-- (SSH: How to access a remote server and edit files)[https://www.youtube.com/watch?v=HcwK8IWc-a8]
+- Udacity's course for Configuring Linux Servers: [Configuring Linux Web Servers](https://www.udacity.com/course/configuring-linux-web-servers--ud299)
+- [SSH: How to access a remote server and edit files](https://www.youtube.com/watch?v=HcwK8IWc-a8)
 - Useful command for checking server errors in the logs: `sudo tail /var/log/apache2/error.log`
-- (Deploying on Linux Server using mod_wsgi and Virtual Environment)[http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/]
-- (Deploying Flask Application - Quick Start)[http://flask.pocoo.org/docs/1.0/quickstart/]
-- (How to deploy Flask Web Application on Ubuntu VPS)[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps]
-- (Configuring SQLAlchemy with Python using PostgreSQL)[https://docs.sqlalchemy.org/en/latest/core/engines.html]
-- (Understanding Firewall and port mappings in Amazon Lightsail)[https://lightsail.aws.amazon.com/ls/docs/en/articles/understanding-firewall-and-port-mappings-in-amazon-lightsail]
-- (How to secure PostgreSQL on Ubuntu VPS)[https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps]
-- (Configuring UTC time)[https://help.ubuntu.com/community/UbuntuTime]
-- (Making .git Directory inaccessible)[https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible]
+- [Deploying on Linux Server using mod_wsgi and Virtual Environment](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
+- [Deploying Flask Application - Quick Start](http://flask.pocoo.org/docs/1.0/quickstart/)
+- [How to deploy Flask Web Application on Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+- [Configuring SQLAlchemy with Python using PostgreSQL](https://docs.sqlalchemy.org/en/latest/core/engines.html)
+- [Understanding Firewall and port mappings in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en/articles/understanding-firewall-and-port-mappings-in-amazon-lightsail)
+- [How to secure PostgreSQL on Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+- [Configuring UTC time](https://help.ubuntu.com/community/UbuntuTime)
+- [Making .git Directory inaccessible](https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible)

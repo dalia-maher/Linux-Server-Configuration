@@ -41,7 +41,7 @@ APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::AutocleanInterval "7";
 APT::Periodic::Unattended-Upgrade "1";
 ```
-- If the message of existing packages can be updated persists, run the following commands:
+- If the message of "X packages can be updated" persists, run the following commands:
 ```
 sudo apt-get install aptitude
 sudo aptitude update
@@ -237,3 +237,4 @@ application.secret_key = 'super_secret_key'
 - [Configuring UTC time](https://help.ubuntu.com/community/UbuntuTime)
 - [Making .git Directory inaccessible](https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible)
 - [Configuring Automatic Updates for installed packages](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)
+- [Configuring Message of the Day issue of existing updates](https://serverfault.com/questions/262751/update-ubuntu-10-04/262773#262773)

@@ -8,7 +8,7 @@ The web application is deployed on this URL: http://ec2-18-194-41-12.eu-central-
 
 1. Creating a Linux Server Instance on [Amazon Lightsail](https://lightsail.aws.amazon.com/)
 2. Setting up Linux Distribution [Ubuntu](https://www.ubuntu.com/download/desktop) 16.04 LTS.
-3. Using [git](https://git-scm.com/) for cloning the project on the server
+3. Using [Git](https://git-scm.com/) for cloning the project on the server
 4. Using [PostgreSQL](https://www.postgresql.org/) as a database server
 5. Deploying [Item Catalog](https://github.com/dalia-maher/Item-Catalog) Python Web Application which was created earlier in this Nanodegree program.
 
@@ -50,7 +50,7 @@ The web application is deployed on this URL: http://ec2-18-194-41-12.eu-central-
 2. Enable the firewall by running this: `sudo ufw enable`.
 3. Check the status of the UFW and make sure the ports are correct by running: `sudo ufw status`.
 4. From the Amazon Ligthsail instance page, click on the `Networking` tab then, configure the ports to be the same like above.
-5. Make sure you can connect to your server by logging in with the following command: 
+5. Make sure you can connect to the server by logging in with the following command: 
 `ssh -i LightsailDefaultKey-eu-central-1.pem -p 2200 ubuntu@18.194.41.12`.
 
 ### Step 6: Create a new user account named "grader"
@@ -63,8 +63,8 @@ The web application is deployed on this URL: http://ec2-18-194-41-12.eu-central-
 3. Verify that the grader has sudo permissions by running `su - grader` and entering the password then running `sudo -l`
 
 ### Step 8: Create an SSH key pair for "grader" using the "ssh-keygen" tool
-1. Logout as the "grader" user to return to your local directory then run: `ssh-keygen`.
-2. Give a name for the file. In my case I named it `udacity_key`.
+1. Logout as the "grader" user to return to the local directory then run: `ssh-keygen`.
+2. Give a name for the file. In my case, I named it `udacity_key`.
 3. Enter a passphrase for that key (twice).
 4. A file with the name `udacity_key.pub` is generated. Run `cat udacity_key.pub` and copy its contents from the terminal.
 5. Login to the server then, create a new directory: `mkdir .ssh`.
@@ -109,7 +109,7 @@ host    all             all             ::1/128                 md5
 1. Install git by running this command: `sudo apt-get install git`.
 
 ### Step 13: Clone and setup "Item Catalog" project from the Github repository
-1. Make directory: `sudo mkdir /var/www/itemcatalog/` and change to it `cd /var/www/itemcatalog/`.
+1. Make directory: `sudo mkdir /var/www/itemcatalog/` and change to it: `cd /var/www/itemcatalog/`.
 2. Clone the Item Catalog project: `sudo git clone https://github.com/dalia-maher/Item-Catalog.git`.
 3. Change the owner of the cloned directory: `sudo chown -R grader:grader itemcatalog/`.
 4. Make sure that .git directory is not publicly accessible via a browser by running: `sudo nano /var/www/itemcatalog/.htaccess` and write in it: `RedirectMatch 404 /\.git` the, save & exit.
@@ -186,7 +186,7 @@ pip install psycopg2-binary
 ```
 10. Change directory: `cd /etc/apache2/sites-available/` and run: `sudo a2ensite itemcatalog` to enable the virtual host.
 11. Activate the new configuration by running: `service apache2 reload`.
-12. Create the itemcatalog.wsgi file by running: `sudo nano /var/www/itemcatalog/itemcatalog.wsgi` and put the following lines to it then save & exit:
+12. Create the itemcatalog.wsgi file by running: `sudo nano /var/www/itemcatalog/itemcatalog.wsgi` and put the following lines to it then, save & exit:
 ```
 activate_this = '/var/www/itemcatalog/itemcatalog/venv/bin/activate_this.py'
 execfile(activate_this, dict(__file__=activate_this))
@@ -203,19 +203,20 @@ application.secret_key = 'super_secret_key'
 ```
 13. Restart Apache service: `sudo service apache2 restart`.
 14. Disable the default Apache site: `sudo a2dissite 000-default.conf`.
-15. Change directory: `cd /var/www` then change the ownership of the project directory to the www-data user: `sudo chown -R www-data:www-data itemcatalog/`.
+15. Change directory: `cd /var/www` then, change the ownership of the project directory to the www-data user: `sudo chown -R www-data:www-data itemcatalog/`.
 16. Restart the Apache service again: `sudo service apache2 restart`.
 17. Finally, open the URL of the project http://ec2-18-194-41-12.eu-central-1.compute.amazonaws.com/ in a browser and make sure that the web application is working fine.
 
 ### Third-Party & Helpful Resources
 
-- Udacity's course for Configuring Linux Servers: https://www.udacity.com/course/configuring-linux-web-servers--ud299
+- Udacity's course for Configuring Linux Servers: (Configuring Linux Web Servers)[https://www.udacity.com/course/configuring-linux-web-servers--ud299]
+- (SSH: How to access a remote server and edit files)[https://www.youtube.com/watch?v=HcwK8IWc-a8]
 - Useful command for checking server errors in the logs: `sudo tail /var/log/apache2/error.log`
-- http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/
-- http://flask.pocoo.org/docs/1.0/quickstart/
-- https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
-- https://docs.sqlalchemy.org/en/latest/core/engines.html
-- https://lightsail.aws.amazon.com/ls/docs/en/articles/understanding-firewall-and-port-mappings-in-amazon-lightsail
-- https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
-- https://help.ubuntu.com/community/UbuntuTime
-- https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible
+- (Deploying on Linux Server using mod_wsgi and Virtual Environment)[http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/]
+- (Deploying Flask Application - Quick Start)[http://flask.pocoo.org/docs/1.0/quickstart/]
+- (How to deploy Flask Web Application on Ubuntu VPS)[https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps]
+- (Configuring SQLAlchemy with Python using PostgreSQL)[https://docs.sqlalchemy.org/en/latest/core/engines.html]
+- (Understanding Firewall and port mappings in Amazon Lightsail)[https://lightsail.aws.amazon.com/ls/docs/en/articles/understanding-firewall-and-port-mappings-in-amazon-lightsail]
+- (How to secure PostgreSQL on Ubuntu VPS)[https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps]
+- (Configuring UTC time)[https://help.ubuntu.com/community/UbuntuTime]
+- (Making .git Directory inaccessible)[https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible]
